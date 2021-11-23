@@ -20,7 +20,7 @@
     <link href="../lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="../lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
     <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
-
+    <link href="~/css/Spinner.css" rel="stylesheet" />
     <!-- azia CSS -->
     <link rel="stylesheet" href="../css/azia.css">
     <style type="text/css">
@@ -44,9 +44,18 @@
     <script src="../lib/select2/js/select2.min.js"></script>
     <script src="../js/chart.flot.sampledata.js"></script>
     <script src="../js/dashboard.sampledata.js"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type="text/javascript">
+        function blockUi() {
+            $(".LoadingSpinner").removeClass("d-none");
+        }
+        function unblockUi() {
+            $(".LoadingSpinner").addClass("d-none");
+        }
+    </script>
 </head>
 <body>
-
+    <div class="LoadingSpinner d-none">Loading</div>
     <div class="az-header">
         <div class="container">
             <div class="az-header-left">
@@ -152,13 +161,13 @@
 
     <div class="az-footer ht-40 fixed-bottom">
         <div class="container ht-100p pd-t-0-f">
-            <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
+            <span>&copy; 2021 All Rights Reserved </span>
         </div><!-- container -->
     </div><!-- az-footer -->
 
 
 
-    
+
     <script src="../js/azia.js"></script>
 
 

@@ -1,4 +1,6 @@
-﻿<div>
+﻿@model IEnumerable<JewelleryStore.Models.ProductModel>
+
+<div>
     <table id="tbl_Products" class="table table-hover">
         <thead>
             <tr>
@@ -19,6 +21,17 @@
                 <td>$32</td>
                 <td>$50</td>
             </tr>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.ProductCategoryName</td>
+                    <td>@product.ProductTypeName</td>
+                    <td>@product.ProductBuyingPrice</td>
+                    <td>@product.ProductSalePrice</td>
+                </tr>
+            }
         </tbody> 
     </table>
 </div>

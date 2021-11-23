@@ -1,6 +1,9 @@
+using JewelleryStore.AppSettings;
+using JewelleryStore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +28,12 @@ namespace JewelleryStore
         {
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            string conStr = Configuration.GetConnectionString("conStr");
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conStr));
+            services.AddTransient<IGenericRepository<ProductModel>, GenericRepository<ProductModel>>();
+            services.AddTransient<IGenericRepository<ProductTypeModel>, GenericRepository<ProductTypeModel>>();
+            services.AddTransient<IGenericRepository<ProductCategoryModel>, GenericRepository<ProductCategoryModel>>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,8 +41,7 @@ namespace JewelleryStore
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-            }
+                app.UseDeveloperExceptionPage();            }
             else
             {
                 app.UseExceptionHandler("/Home/Error");

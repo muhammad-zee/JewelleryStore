@@ -11187,8 +11187,11 @@ a.text-dark:hover, a.text-dark:focus {
     border-width: 1px;
     background-color: transparent;
 }
-
+/*
     [class*=btn-outline-]:hover, [class*=btn-outline-]:focus {
+        color: #fff;
+    }*/
+    [class*=btn-outline-]:hover {
         color: #fff;
     }
 
@@ -11197,7 +11200,8 @@ a.text-dark:hover, a.text-dark:focus {
     color: #5b47fb;
 }
 
-    .btn-outline-indigo:hover, .btn-outline-indigo:focus {
+    /*.btn-outline-indigo:hover, .btn-outline-indigo:focus {*/
+    .btn-outline-indigo:hover {
         background-color: #5b47fb;
     }
 
@@ -23012,7 +23016,7 @@ body {
     display: flex;
     align-items: center;
     background: #eee7ef;
-    padding: 20px;
+    /*padding: 20px;*/
     text-align: left;
     font-weight: 600;
     border: none;
@@ -23031,7 +23035,8 @@ body {
     }
 
     .tickets-tab-switch .nav-item .nav-link.active {
-        background: #3366ff;
+        /*background: #3366ff;*/
+        background: #5b47fb;
         border-radius: 4px;
         color: #fff;
         border: none;
